@@ -1,2 +1,2 @@
-# rand-chrome-extension
-Random chrome extension
+# Какое-то случайное расширение браузера
+Пробуем делать расширения для Хрома
