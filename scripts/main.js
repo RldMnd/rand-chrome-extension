@@ -1,3 +1,3 @@
 chrome.runtime.onInstalled.addListener(() => {
-    console.log("Sup!");
+    console.log("IT'S ALIVE!")
   });
