@@ -17,7 +17,7 @@ btn.addEventListener("click",
                 cookies=cookies.map(el=>`${el.name}=${el.value}`);
                 cooStr=cookies.join(";");
         
-                fetch('https://www.kinopoisk.ru/mykp/movies/list/type/3575/sort/default/vector/desc/vt/all/perpage/200/page/1/', {headers: {cookie: cooStr}})
+                fetch('https://www.kinopoisk.ru/mykp/movies/list/type/3575/sort/default/vector/asc/vt/all/perpage/200/page/1/', {headers: {cookie: cooStr}})
                     .then(response => {
                         if (!response.ok) {
                             console.log("Fetch err");
@@ -26,13 +26,12 @@ btn.addEventListener("click",
                     })
                     .then(data => 
                         {
-                            let re=/\/(film|series)\/\d+\//g;
-                            //let re=/[а-яА-Я\d\w\s]+/g;
+                            let re=/<a href="\/(film|series)\/\d+\/">.+/g;
                             const array = [...data.matchAll(re)];
                             let ind=Math.round(Math.random()*array.length);
                             console.log(array[ind]);
                             data.textContent=array[ind][0];
-                            var o=3;
+                            let o=3;
                         }
                         );
                 console.log(cooStr);
